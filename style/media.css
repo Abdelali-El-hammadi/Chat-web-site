@@ -1,0 +1,16 @@
+@media screen and (max-width:1200px){
+    #home{
+        width:45%;
+    }
+}
+@media screen and (max-width:850px){
+    #home{
+        width:60%;
+    }
+}
+
+@media screen and (max-width:600px){
+    #home{
+        width:95%;
+    }
+}

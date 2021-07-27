@@ -1,0 +1,102 @@
+body{
+    min-height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#home{
+    width: 35%;
+    box-shadow:0 0 30px grey;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+#arrow{
+    height: 17px;
+}
+#top_bare{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+}
+#fullname_status{
+    margin-left: 10px;
+    flex: 1;
+}
+.status{
+    color:green;
+    font-size: 14px;
+}
+#user_image{
+    margin-left: 30px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-position:center;
+    background-size:cover;
+    background-image:url("../profile_images/mainpage.png")
+}
+#chat{
+    background-color: rgb(223, 222, 222);
+    flex:1;
+}
+#send{
+    height: 20px;
+    margin-left:15px;
+    cursor:pointer;
+}
+#bottom_bar{
+    padding: 10px 30px;
+}
+#input_msg{
+    display: flex;
+    align-items: center;
+    width:100%;
+}
+#input{
+    outline: none;
+    border: 1px solid grey;
+    font-size:17px;
+    flex: 1;
+    padding: 0 5px;
+}
+
+#chat{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    padding-top: 20px;
+    overflow-y: scroll;
+    transition: all 0.2s ease;
+}
+.from_me{
+    margin-bottom: 10px;
+    background-color: #3d3f57;
+    padding:3px 10px;
+    color: white;
+    border-radius: 20px 20px 0 20px;
+    align-self: flex-end;
+    margin-left: 50px;
+}
+.from_him{
+    margin-bottom: 10px;
+    color: #3d3f57;
+    padding:3px 10px;
+    background-color: white;
+    border-radius: 20px 20px 20px 0;
+    align-self: flex-start;
+    margin-right: 50px;
+}
+
+.green{
+    color:green;
+}
+.grey{
+    color:grey;
+}

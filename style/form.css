@@ -1,0 +1,116 @@
+body{
+    margin:0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+*{
+    color:rgb(0, 0, 0);
+    font-weight: bolder;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:40%;
+    box-shadow:0 0 30px gray;
+}
+
+.lb{
+    margin-top: 10px;
+    font-size:18px;
+    display: block;
+    align-self: flex-start;
+}
+.input{
+    width: 100%;
+    box-sizing:border-box;
+    padding:2px 4px;
+    font-size:16px;
+    outline: none;
+    border: 1px solid black ;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.submit{
+    font-size:18px;
+    color:white;
+    background-color:#3d3f57;
+    width: 100%;
+    border: none;
+    padding:5px;
+    margin-top:30px;
+    border-radius: 5px;
+}
+.submit:hover{
+    filter:brightness(1.1)
+}
+#form{
+    box-sizing: border-box;
+    width: 100%;
+    padding:30px;
+    padding-top:5px;
+}
+.already{
+    font-size: 17px;
+    margin-top:20px;
+}
+.signup{
+    text-decoration: none;
+    color:rgb(0 88 207);
+}
+.signup:hover{
+    text-decoration: underline;
+}
+.error{
+    background-color: red;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    font-size: 15px;
+    padding:0 4px;
+    padding-top: 5px;
+    position: relative;
+    bottom: 25px;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    z-index: 1;
+}
+#password_container{
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+#hide{
+    height: 18px;
+    position: absolute;
+    z-index:3;
+    right: 10px;
+}
+@media screen and (max-width:1200px){
+    form{
+        width:50%
+    }
+}
+@media screen and (max-width:700px){
+    form{
+        width:70%
+    }
+}
+@media screen and (max-width:450px){
+    form{
+        width:90%;
+    }
+    #form{
+        padding:20px 10px;
+        padding-top: 0px;
+    }
+    #amidlune{
+        padding-left:10px;
+    }
+}

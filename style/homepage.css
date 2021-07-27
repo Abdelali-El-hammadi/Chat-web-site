@@ -1,0 +1,129 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+}
+#home{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 400px;
+    box-shadow: 0 0 30px grey;
+    padding-bottom: 24px;
+}
+#profile{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom:1px solid #3d3f57;
+    border-radius: 0 0 30px 0;
+}
+#full_name{
+    font-size: 17px;
+    font-weight: bolder;
+}
+#fullname_status{
+    margin-left: 10px;
+    flex: 1;
+}
+#logout{
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #3d3f57;
+    border: 2px solid transparent;
+}
+#logout:hover{
+    background-color:  #5d6081;
+
+}
+#status{
+    color: green;
+    font-size: 14px;    
+}
+#profile_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-position:center;
+    background-size:cover;
+    background-image: url("../profile_images/mainpage.png");
+}
+#search_bar{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left:30px;
+    position: relative;
+    border-bottom: 1px solid #3d3f57;
+    border-radius: 0 0 30px 0;
+}
+#loupe{
+    height: 15px;
+    position: absolute;
+    right: 30px;
+}
+#select_user{
+    box-sizing: border-box;
+    padding: 0;
+    font-size: 17px;
+    border: none;
+    outline: none;
+}
+#users{
+    flex: 1;
+    margin-top: 20px;
+    overflow-y: scroll;
+}
+.username_lastm{
+    margin-left:10px;
+    flex: 1;
+}
+.user{
+    display: flex;
+    align-items: center;
+    padding:10px 30px;
+}
+.user:hover{
+    background-color: rgb(245, 244, 244);
+}
+.user_image{
+    height: 40px;
+    width:40px;
+    border-radius: 20px;
+    background-position:center;
+    background-size:cover;
+}
+.user_fullname{
+    font-size: 15px;
+}
+.user_lastmessage{
+    font-size: 14px;
+    color: grey;
+}
+.user_status{
+    height: 12px;
+    width:12px;
+    border-radius:6px;
+}
+.green{
+    background-color:green;
+}
+.grey{
+    background-color:grey;
+}
+#does{
+    text-align: center;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:350px){
+    #amidlune,#profile,.user{
+        padding: 10px;
+    }
+    
+}
