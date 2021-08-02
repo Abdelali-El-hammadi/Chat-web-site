@@ -1,10 +1,16 @@
 <?php
     session_start();
-    include("scriptphp/connexion.php");
-    $rq=$pdo->prepare("select fullname,profile_image from account where(id=?) limit 1;");
-    $rq->setFetchMode(PDO::FETCH_ASSOC);
-    $rq->execute(array($_SESSION["user_id"]));
-    $profile=$rq->fetchAll();
+    if($_SESSION["connected"]!="yes"){
+        header("location:index.php");
+        exit();
+    }
+    else{
+        include("scriptphp/connexion.php");
+        $rq=$pdo->prepare("select fullname,profile_image from account where(id=?) limit 1;");
+        $rq->setFetchMode(PDO::FETCH_ASSOC);
+        $rq->execute(array($_SESSION["user_id"]));
+        $profile=$rq->fetchAll();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +23,12 @@
     <link rel="stylesheet" href="style/shape.css"\>
     <link rel="stylesheet" href="style/homepage.css" >
     <link rel="stylesheet" href="style/media.css">
+    <link rel="stylesheet" href="Icons/style.css">
     <script defer src="scriptjs/searching.js"></script>
     <title>Home</title>
 </head>
 <body onload="list_users()">
+    <a id="logout" href="scriptphp/deconnexion.php" >Log out</a>
     <div id="home" class="bordershape">
         <div id="amidlune" class="bordershape">Amidlune</div>
         <div id="profile">
@@ -29,11 +37,13 @@
                 <div id="full_name"><?php echo $profile[0]["fullname"] ?></div>
                 <div id="status">Active now</div>
             </div>
-            <a id="logout" href="scriptphp/deconnexion.php" >Log out</a>
+            <a href="editprofile.php" id="edit_profile">
+                <span class="icon-cog icon"></span>
+            </a>
         </div>
         <div id="search_bar">
             <div id="select_user">Select an user to chat with</div>
-            <img id="loupe" src="assets/loupe.png" >
+            <span id="loupe" class="icon-search icon"></span>
         </div>
         <div id="users">
         

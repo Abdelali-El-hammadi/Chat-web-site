@@ -10,7 +10,7 @@ document.querySelector("#loupe").onclick=function(){
     select_user = document.querySelector("#select_user");
     loupe = document.querySelector("#loupe");
     if(!searching){
-        loupe.setAttribute("src","assets/x.png");
+        loupe.setAttribute("class","icon-close");
         select_user.remove();
         input = document.createElement("input");
         input.setAttribute("type","text");
@@ -21,7 +21,7 @@ document.querySelector("#loupe").onclick=function(){
         searching=true;
     }
     else{
-        loupe.setAttribute("src","assets/loupe.png");
+        loupe.setAttribute("class","icon-search");
         select_user.remove();
         div = document.createElement("div");
         div.innerHTML="Select an user to chat with";

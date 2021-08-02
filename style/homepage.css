@@ -1,9 +1,11 @@
 body{
     min-height: 100vh;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     margin:0;
+    
 }
 #home{
     display: flex;
@@ -36,6 +38,9 @@ body{
     border-radius: 5px;
     background-color: #3d3f57;
     border: 2px solid transparent;
+    position: fixed;
+    top:10px;
+    left:10px;
 }
 #logout:hover{
     background-color:  #5d6081;

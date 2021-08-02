@@ -1,0 +1,17 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+    
+}
+#home{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 400px;
+    box-shadow: 0 0 30px grey;
+    padding-bottom: 24px;
+}

@@ -53,6 +53,7 @@ a{
 }
 #bottom_bar{
     padding: 10px 30px;
+    padding-right: 10px;
 }
 #input_msg{
     display: flex;
@@ -65,8 +66,14 @@ a{
     font-size:17px;
     flex: 1;
     padding: 0 5px;
+    margin-right: 5px;
 }
-
+.icon_camera1{
+    font-size: 16px !important;
+}
+#get_image{
+    display: none;
+}
 #chat{
     display: flex;
     flex-direction: column;
@@ -75,25 +82,59 @@ a{
     overflow-y: scroll;
     transition: all 0.2s ease;
 }
-.from_me{
+.message{
+    display: inline;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
     margin-bottom: 10px;
+}
+.message:hover .date{
+    display: unset;
+}
+.date{  
+    color:white;
+    background-color: grey;
+    font-size: 13px;
+    border-radius: 5px;
+    padding:3px 10px;
+    margin:0 2px;
+    display: none;
+    align-self:center;
+} 
+.from_me{
+    align-items: flex-start;
+}
+.from_him{
+    align-items: flex-end;
+}
+.message_text{
     background-color: #3d3f57;
     padding:3px 10px;
     color: white;
     border-radius: 20px 20px 0 20px;
-    align-self: flex-end;
+}
+.margin_left{
+    margin-left: 20px;
+}
+.margin_right{
+    margin-right: 20px;
+    justify-content: flex-start;
+}
+.image_from_me{
+    margin-bottom:10px;
     margin-left: 50px;
+    width: 30%;
+    align-self: flex-end;
+    border-radius: 10px;
 }
-.from_him{
-    margin-bottom: 10px;
-    color: #3d3f57;
-    padding:3px 10px;
-    background-color: white;
-    border-radius: 20px 20px 20px 0;
-    align-self: flex-start;
+.image_from_him{
+    margin-bottom:10px;
     margin-right: 50px;
+    width: 30%;
+    align-self: flex-start;
+    border-radius: 10px;
 }
-
 .green{
     color:green;
 }

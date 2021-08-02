@@ -72,6 +72,7 @@
     <link rel="stylesheet" href="style/form.css" >
     <link rel="stylesheet" href="style/shape.css" >
     <link rel="stylesheet" href="style/signup.css" >
+    <link rel="stylesheet" href="Icons/style.css" >
     <script defer src="scriptjs/hidepassword.js"></script>
     <title>Sign up</title>
 </head>
@@ -97,7 +98,7 @@
             <label for="password" class="lb">Password</label>
             <div id="password_container">
                 <input  id="pass" type="password" name="password" class="input" placeholder="Enter your password" value=<?php echo @$password ?>>
-                <img  id="hide" src="assets/private.png" onclick="hidepassword()" >
+                <span  id="hide" class="icon-eye-blocked" onclick="hidepassword()" ></span>
             </div>
             <?php error(@$password_error)?>
             <label for="image" class="lb">Profile Image</label>

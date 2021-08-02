@@ -19,10 +19,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/chat.css">
+    <link rel="stylesheet" href="style/chat.css" <?php echo time() ?>>
     <link rel="stylesheet" href="style/font.css">
     <link rel="stylesheet" href="style/shape.css">
     <link rel="stylesheet" href="style/media.css">
+    <link rel="stylesheet" href="Icons/style.css">
     <script defer src="scriptjs/chat.js"></script>
     <title>Chat</title>
 </head>
@@ -30,7 +31,7 @@
     <div id="home" class="bordershape">
         <div id="top_bare" class="bordershape">
             <a href="homepage.php">
-                <img id="arrow" src="assets/arrow.png">
+                <span id="arrow" class="icon-arrow-left2"></span>
             </a>
             <div id="user_image" style="background-image:url(<?php echo "profile_images/".$user[0]["profile_image"]?>)"></div>
             <div id="fullname_status">
@@ -43,15 +44,18 @@
                     <?php } ?>
             </div>
         </div>
-        <div id="chat">   
+        <div id="chat">  
         </div>
         <div id="bottom_bar">
             <div id="input_msg">
                 <input id="input" type="text" name="input">
-                <img id="send" src="assets/send.png" onclick="send()">
+                <label for="get_image" class="lbcamera">
+                    <span class="icon-camera1 icon"></span>
+                </label>
+                <input id="get_image" type="file" name="image" onchange="get_image()" onclick="this.value=null;">
+                <span id="send" class="icon-send icon" onclick="send()"></span>
             </div>
         </div>
     </div>
-    
 </body>
 </html>
