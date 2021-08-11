@@ -22,12 +22,13 @@
     <link rel="stylesheet" href="style/chat.css" <?php echo time() ?>>
     <link rel="stylesheet" href="style/font.css">
     <link rel="stylesheet" href="style/shape.css">
+    <link rel="stylesheet" href="style/loading.css">
     <link rel="stylesheet" href="style/media.css">
     <link rel="stylesheet" href="Icons/style.css">
     <script defer src="scriptjs/chat.js"></script>
     <title>Chat</title>
 </head>
-<body onload='setchat_firsttime()'>
+<body onload='updatechat()'>
     <div id="home" class="bordershape">
         <div id="top_bare" class="bordershape">
             <a href="homepage.php">
@@ -57,5 +58,7 @@
             </div>
         </div>
     </div>
+    <div id="invalid_image">Invalid image</div>
+    <div id="loading"></div>
 </body>
 </html>

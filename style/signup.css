@@ -12,6 +12,7 @@ input[type="file"]{
     align-self:flex-start;
 }
 .error_image{
+    padding: 0 !important;
     background-color: red;
     color: white;
     border-radius: 0 0 5px 5px;

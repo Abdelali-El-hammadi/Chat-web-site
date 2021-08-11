@@ -51,4 +51,18 @@
     </div>
     
 </body>
+<script>
+    window.onbeforeunload=function(){
+        try{
+         xhr= new XMLHttpRequest();
+        }
+        catch(e){
+            xhr= new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        if(window.event.clientY<0){
+            xhr.open("post","scriptphp/close_window.php",true);
+            xhr.send();
+        }
+    }
+</script>
 </html>

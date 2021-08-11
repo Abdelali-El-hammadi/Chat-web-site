@@ -82,8 +82,27 @@ body{
 #users{
     flex: 1;
     margin-top: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
+#users::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  #users::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  #users::-webkit-scrollbar-thumb {
+    background: #3d3f57;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  #users::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 .username_lastm{
     margin-left:10px;
     flex: 1;
@@ -92,6 +111,9 @@ body{
     display: flex;
     align-items: center;
     padding:10px 30px;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .user:hover{
     background-color: rgb(245, 244, 244);

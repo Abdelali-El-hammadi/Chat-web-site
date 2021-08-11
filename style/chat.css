@@ -10,6 +10,17 @@ a{
     align-items: center;
     justify-content: center;
 }
+#invalid_image{
+    display: none;
+    transition:all 0.5s ease;
+    background-color: red;
+    color: white;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius:5px;
+    position: absolute;
+    z-index: 5;
+}
 #home{
     width: 35%;
     box-shadow:0 0 30px grey;
@@ -79,40 +90,62 @@ a{
     flex-direction: column;
     padding: 0 30px;
     padding-top: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
     transition: all 0.2s ease;
 }
+#chat::-webkit-scrollbar {
+    width: 10px;
+    background-color: red;
+  }
+  
+/* Track */
+#chat::-webkit-scrollbar-track {
+background-color:rgb(231, 230, 230);
+}
+
+/* Handle */
+#chat::-webkit-scrollbar-thumb {
+background: #3d3f57;
+border-radius: 5px;
+}
+
+/* Handle on hover */
+#chat::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+.loading{
+    height: 30px;
+}
 .message{
-    display: inline;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
     margin-bottom: 10px;
 }
 .message:hover .date{
-    display: unset;
+    visibility: visible;
 }
 .date{  
     color:white;
     background-color: grey;
-    font-size: 13px;
+    font-size: 10px;
     border-radius: 5px;
-    padding:3px 10px;
+    padding:3px 5px;
     margin:0 2px;
-    display: none;
+    visibility:hidden;
     align-self:center;
 } 
 .from_me{
-    align-items: flex-start;
+    color: white;
+    background-color: #3d3f57;
 }
 .from_him{
-    align-items: flex-end;
+    color: #3d3f57;
+    background-color: white;
 }
 .message_text{
-    background-color: #3d3f57;
     padding:3px 10px;
-    color: white;
     border-radius: 20px 20px 0 20px;
+    word-break: break-all;
 }
 .margin_left{
     margin-left: 20px;
@@ -121,18 +154,17 @@ a{
     margin-right: 20px;
     justify-content: flex-start;
 }
+.image{
+    align-self: center;
+}
 .image_from_me{
-    margin-bottom:10px;
-    margin-left: 50px;
     width: 30%;
-    align-self: flex-end;
+    align-self: center;
     border-radius: 10px;
 }
 .image_from_him{
-    margin-bottom:10px;
-    margin-right: 50px;
     width: 30%;
-    align-self: flex-start;
+    align-self: center;
     border-radius: 10px;
 }
 .green{
@@ -140,4 +172,41 @@ a{
 }
 .grey{
     color:grey;
+}
+
+#container_image{
+    background-color: rgba(0, 0, 0, 0.904);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading_image{
+    position:relative;
+    display: inline;
+}
+.progress{
+    height: 10px;
+    background-color: transparent;
+    border: 2px solid blue;
+    position: absolute;
+    align-self: center;
+    left: 10px;
+    right: 10px;
+}
+#close{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@media all and (min-width:750px){
+    #close{
+        font-size: 25px;
+    }
 }
