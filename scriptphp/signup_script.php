@@ -43,15 +43,15 @@
         $image_error="Empty field";
         $validsign=false;
     }
-    elseif(!preg_match("#\.(jpe?g$)|(png$)#",@$_FILES["image"]["name"])){
+    elseif(!preg_match("#\.(jpe?g$)|(png$)|(JPG$)#",@$_FILES["image"]["name"])){
         $image_error="Invalid image";
         $validsign=false;
     }
     if($validsign){
         include("connexion.php");
         include("compress_image.php");
-        $rq=$pdo->prepare("insert into account(fullname,email,password,profile_image,status,creation) values(?,?,?,?,?,now());");
-        $rq->execute(array($first_name." ".$last_name,$email,md5($password),$_FILES["image"]["name"],0));
+        $rq=$pdo->prepare("insert into account(fullname,email,password,profile_image,status,last_modification) values(?,?,?,?,?,?);");
+        $rq->execute(array($first_name." ".$last_name,$email,md5($password),$_FILES["image"]["name"],0,time()));
         compress_image($_FILES["image"]["tmp_name"],"../profile_images/".$_FILES["image"]["name"],70);
         echo '{"errors":"none"}';
     }

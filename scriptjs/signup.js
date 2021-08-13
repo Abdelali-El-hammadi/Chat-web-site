@@ -22,10 +22,10 @@ document.fo.onsubmit=function(){
     xhr.send(data);
     xhr.onreadystatechange=function(){
         if(xhr.readyState==4 && xhr.status==200){
-            errors_data=JSON.parse(xhr.responseText);
+            errors_data=JSON.parse(xhr.responseText)
             document.querySelector("#loading").innerHTML="";
             if(errors_data.errors=="yes"){
-                form_errors(errors_data);
+                // form_errors(errors_data);
             }
             else{
                 window.location.href="index.php";

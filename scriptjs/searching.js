@@ -1,10 +1,13 @@
+
 searching=false;
+
+
 try{
     xhr= new XMLHttpRequest()}
 catch(e){
     xhr = new ActiveXObject("Microsoft.XMLHTTP");
 }
-
+document.body.onload=list_users(0);
 document.querySelector("#loupe").onclick=function(){
     search_bar=document.querySelector("#search_bar");
     select_user = document.querySelector("#select_user");
@@ -46,13 +49,33 @@ function search(){
     }
 }
 
-function list_users(){
+function list_users(last_time){
    if(!searching){
         xhr.open("POST","scriptphp/list_users.php",true);
-        xhr.send();
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.send("last_time="+last_time);
         xhr.onload=function(){
-            document.querySelector("#users").innerHTML=xhr.responseText;
+            date=new Date();
+            last_time=date.getTime();
+            users=JSON.parse(xhr.responseText);
+            setTimeout("list_users("+last_time+")",100);
+            // users=JSON.parse(xhr.responseText);
+            // users.forEach(user=>{
+            //     image="profile_images/"+user.profile_image;
+            //     document.querySelector("#users").insertAdjacentHTML("beforeend",
+            //         set_user(user));      
+            // });
+            console.log(xhr.responseText);
         }
    }
-   setTimeout("list_users()",1000);
+}
+function set_user(user){
+    return "<a href='chat.php?id="+user.id+"' class='user'>"
+                +"<div class='user_image' style='background-image:url("+image+")'></div>"   
+                +"<div class='username_lastm'>"
+                    +"<div class='user_fullname'>"+user.fullname+"</div>"
+                    // +"<div id='"+user.id+"last_message' class='user_lastmessage'>"+user.last_message+"</div>"
+                +"</div>"
+                +"<div id='"+user.id+"status' class='user_status "+(user.status=='1'?'green':'grey')+"'></div>"
+            +"</a>";
 }

@@ -184,17 +184,33 @@ background: #555;
     align-items: center;
 }
 .loading_image{
-    position:relative;
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 30%;
+}
+.full_width{
+    width: 100% !important;
+}
+.blur{
+    filter:blur(1.5px);
 }
 .progress{
-    height: 10px;
+    box-sizing: border-box;
+    height: 6px;
     background-color: transparent;
-    border: 2px solid blue;
+    border: 1px solid white;
     position: absolute;
-    align-self: center;
     left: 10px;
     right: 10px;
+}
+.progress_fill{
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    left: 0;  
+    width: 0;
 }
 #close{
     position: absolute;

@@ -2,23 +2,43 @@
     session_start();
     include("connexion.php");
     include("lastmessage.php");
-    $rq=$pdo->prepare("select * from account where(id!=?);");
-    $rq->execute(array($_SESSION["user_id"]));
-    $users=$rq->fetchAll();
-    foreach($users as $user){
-        $image="profile_images/".$user["profile_image"];
-        echo "<a href='chat.php?id=".md5($user["id"])."' class='user'>
-            <div class='user_image' style='background-image:url($image)'></div>
-            <div class='username_lastm'>
-                <div class='user_fullname'>".$user["fullname"]."</div>
-                <div class='user_lastmessage'>".last_message(md5($user['id']),$pdo)."</div>
-            </div>";
-        if ($user["status"]){
-            echo "<div class='user_status green'></div>";
+    $rq=$pdo->prepare("select md5(id),fullname,profile_image,status,last_modification from account where(id!=? and last_modification>?);");
+    $rq->setFetchMode(PDO::FETCH_ASSOC); 
+    while(true){
+        $rq->execute(array($_SESSION["user_id"],$_POST["last_time"]*1));
+        $users=$rq->fetchAll();
+        if(sizeof($users)){
+            echo json_encode($users);
+            break;
         }
-        else{
-            echo "<div class='user_status grey'></div>";
-        }
-        echo "</a>";
+        sleep(1);
     }
+    // else{
+    //     $new_users=array();
+    //     while(true){
+    //         usleep(500000);
+    //         $rq->execute(array($_SESSION["user_id"]));
+    //         $new_data=$rq->fetchAll();
+    //         if($new_data[0]["fullname"]=="rida"){
+    //             echo '{"full":"zho"}';
+    //             break;
+    //         }   
+    //         // if(sizeof($new_data)>sizeof($users)){
+    //         //     for($j=sizeof($users);$j<sizeof($new_data);$j++){
+    //         //         array_push($users,["id"=>"","fullname"=>"","profile_image"=>"","status"=>""]);
+    //         //     }
+    //         // }
+    //         // for($i=0;$i<sizeof($new_data);$i++){
+    //         //     $new_data[$i]["last_message"]=last_message(md5($new_data[$i]["id"]),$pdo);
+    //         //     $new_data[$i]["id"]=md5($new_data[$i]["id"]);
+    //         //     if(sizeof(array_diff_assoc($new_data[$i],$users[$i]))){
+    //         //         array_push($new_users,$new_data[$i]);
+    //         //     }
+    //         // }
+    //         // if(sizeof($new_users)){
+    //         //     echo json_encode($new_users);
+    //         //     break;
+    //         // }  
+    //     }
+    // }
 ?>
